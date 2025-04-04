@@ -15,11 +15,14 @@
         integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" /> 
 </head>
-<body>
-    <div class="container-xl container-fluid ">
+<body id="body">
+    <div class="container-xl container-fluid " id="container">
         <div class="row g-0">
             <button class="togle d-lg-none" onclick="toggleAside()">
                 ☰
+            </button>
+            <button class="mode">
+                <a class="btn btn-secondary text-white" id="button" onclick="modes();">Dark Mode</a>
             </button>
             <div class="col-lg-3 ">
                 <aside class="aside text-center" id="aside">
@@ -149,7 +152,16 @@
                                             </div>
                                         </div>
                                     </div>
+
                                 </div> <!-- cards-->
+                                <div class="row mt-5">
+									<div class="col-md-12" data-aos="fade-up" data-aos-duration="2000">
+										<div class="hire">
+											<h2>I am happy to know you <br>that 300+ projects done sucessfully!</h2>
+											<a href="#" class="btn-hire">Hire me</a>
+										</div>
+									</div>
+								</div>
                             </div>
                         </div> <!-- about-->
                     </section><!-- about section-->
@@ -240,7 +252,7 @@
                             </div>
                         </div><!-- services-->
                     </section><!-- services section-->
-
+                    
                     <section>
                         <div class="skills mt-5 section" id="skills">
                             <div class="ms-md-5 ms-2 me-2">
@@ -309,7 +321,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="accordion" id="accordionExample">
-                                            <div class="accordion-item">
+                                            <div class="accordion-item" id="accordion-item">
                                                 <h2 class="accordion-header" id="headingOne">
                                                     <button class="accordion-button" type="button"
                                                         data-bs-toggle="collapse" data-bs-target="#collapseOne"
@@ -333,7 +345,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="accordion-item">
+                                            <div class="accordion-item" id="accordion-item">
                                                 <h2 class="accordion-header" id="headingTwo">
                                                     <button class="accordion-button collapsed" type="button"
                                                         data-bs-toggle="collapse" data-bs-target="#collapseTwo"
@@ -357,7 +369,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="accordion-item">
+                                            <div class="accordion-item" id="accordion-item">
                                                 <h2 class="accordion-header" id="headingThree">
                                                     <button class="accordion-button collapsed" type="button"
                                                         data-bs-toggle="collapse" data-bs-target="#collapseThree"
@@ -381,7 +393,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="accordion-item">
+                                            <div class="accordion-item" id="accordion-item">
                                                 <h2 class="accordion-header" id="headingFourth">
                                                     <button class="accordion-button collapsed" type="button"
                                                         data-bs-toggle="collapse" data-bs-target="#collapseFourth"
@@ -404,7 +416,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="accordion-item">
+                                            <div class="accordion-item" id="accordion-item">
                                                 <h2 class="accordion-header" id="headingFive">
                                                     <button class="accordion-button collapsed" type="button"
                                                         data-bs-toggle="collapse" data-bs-target="#collapseFive"
@@ -702,7 +714,7 @@
                                         <div class="card">
                                             <img src="images/blog-3.jpg" class="btn btn-link">
                                             <div class="card-body">
-                                                <span>Jully 15, 2024 | Python</span>
+                                                <span>July 15, 2024 | Python</span>
                                                 <div class="card-title mt-3">
                                                     <h5><a href="" class="text-decoration-none text-dark">Python Tips For
                                                             Beginner</a></h5>
@@ -770,11 +782,97 @@
                             </div>
                         </div> <!-- Contacts-->
                     </section> <!-- Contact section-->
+                    <button id="topbutton"><a href="#main" class="btn"><i class="fa-solid fa-arrow-up"></i></a></button>
                 </main>
             </div>
         </div> <!-- main row-->
     </div> <!-- container-->
 </body>
+
+<script>
+    function modes(){
+        if(document.getElementById("button").innerHTML=="Dark Mode"){
+            document.getElementById("container").setAttribute("style","background-color:black;color:white;");
+            document.getElementById("aside").setAttribute("style","background-color:black");
+            let asidep=document.querySelectorAll("aside p");
+            for (let i = 0; i < asidep.length; i++) {
+                asidep[i].style.color = "white"; 
+            }
+            let asideli=document.querySelectorAll("aside li a");
+            for (let i = 0; i < asideli.length; i++) {
+                asideli[i].style.color = "white"; 
+            }
+            
+            let carousal = document.querySelectorAll(".content h1");
+            for (let i = 0; i < carousal.length; i++) {
+                carousal[i].style.color = "black"; 
+            }
+            let carousalp = document.querySelectorAll(".content p");
+            for (let i = 0; i < carousalp.length; i++) {
+                carousalp[i].style.color = "black"; 
+                
+            }
+            let accordion = document.querySelectorAll(".accordion-item"); 
+            for (let i = 0; i < accordion.length; i++) {
+                accordion[i].style.backgroundColor = "black"; 
+            }
+            let experience = document.querySelectorAll(".experience article"); 
+            for (let i = 0; i < experience.length; i++) {
+                experience[i].style.backgroundColor = "black"; 
+            }
+            let recentwork = document.querySelectorAll(".recent-work"); 
+            for (let i = 0; i < recentwork.length; i++) {
+                recentwork[i].style.color = "white"; 
+            }
+            let card = document.querySelectorAll(".blog .card"); 
+            for (let i = 0; i < card.length; i++) {
+                card[i].style.backgroundColor = "black"; 
+            }
+            let h5 = document.querySelectorAll(".blog  h5 a");      
+            for (let i = 0; i < h5.length; i++) {
+                h5[i].setAttribute("style", "color: white !important;");
+                
+            }
+            document.getElementById("button").innerHTML="Light Mode";
+        }
+        else{
+            document.getElementById("container").removeAttribute("style");
+            document.getElementById("aside").removeAttribute("style");
+            let asidep=document.querySelectorAll("aside p");
+            for (let i = 0; i < asidep.length; i++) {
+                asidep[i].removeAttribute("style"); 
+            }
+            let asideli=document.querySelectorAll("aside li a");
+            for (let i = 0; i < asideli.length; i++) {
+                asideli[i].removeAttribute("style"); 
+            }
+            let accordion = document.querySelectorAll(".accordion-item"); 
+            for (let i = 0; i < accordion.length; i++) {
+                accordion[i].removeAttribute("style"); 
+            }
+            let experience = document.querySelectorAll(".experience article"); 
+            for (let i = 0; i < experience.length; i++) {
+                experience[i].removeAttribute("style"); 
+            }
+            let recentwork = document.querySelectorAll(".recent-work"); 
+            for (let i = 0; i < recentwork.length; i++) {
+                recentwork[i].removeAttribute("style"); 
+            }
+            let card = document.querySelectorAll(".blog .card"); 
+            for (let i = 0; i < card.length; i++) {
+                card[i].removeAttribute("style"); 
+            }
+            let h5 = document.querySelectorAll(".blog  h5 a");      
+         for (let i = 0; i < h5.length; i++) {
+            h5[i].removeAttribute("style");
+                
+            }
+
+            document.getElementById("button").innerHTML="Dark Mode";
+
+        } 
+    }
+</script>
 <script>
     function toggleAside() {
         document.getElementById("aside").classList.toggle("show-aside");
@@ -843,4 +941,8 @@
 </script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+
+
+
 </html>
